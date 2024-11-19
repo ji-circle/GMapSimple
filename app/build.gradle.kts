@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.gmapsimple"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.gmapsimple"
@@ -18,6 +18,7 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+        resValue("string","google_maps_key","AIzaSyBjB8ZQ4-Dds48-gF6GvxPYYmoo0hyJF5U")
     }
 
     buildTypes {
@@ -66,4 +67,44 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+//    // Jetpack Compose
+//    implementation(libs.ui)
+//    implementation(libs.androidx.material)
+//    implementation(libs.ui.tooling.preview)
+//    implementation(libs.androidx.lifecycle.runtime.compose)
+
+    // ViewModel
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+
+    // Google Maps
+    implementation(libs.play.services.maps)
+
+    // Coroutines
+//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+
+    //
+//    // Jetpack Compose
+//    implementation("androidx.compose.ui:ui:1.7.5")
+//    implementation("androidx.compose.material:material:1.7.5")
+//    implementation("androidx.compose.ui:ui-tooling-preview:1.7.5")
+//    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
+//
+//    // ViewModel
+//    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
+//
+//    // Retrofit
+//    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+//    implementation("com.squareup.retrofit2:converter-gson:2.11.0")
+//
+//    // Google Maps
+//    implementation("com.google.android.gms:play-services-maps:19.0.0")
+//
+//    // Coroutines
+//    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 }
