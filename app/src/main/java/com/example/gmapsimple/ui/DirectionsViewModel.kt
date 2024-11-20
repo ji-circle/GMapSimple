@@ -125,7 +125,6 @@ class DirectionsViewModel(
                     destination,
                     mode
                 )
-//                val result = directionsRepository.getDirections(origin, destination, apiKey)
                 _directionsResult.value = result
                 setRouteSelectionText()
                 Log.d("확인 routeSelectionText", routeSelectionText.value.toString())

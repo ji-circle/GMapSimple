@@ -25,7 +25,6 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        resValue("string","google_maps_key","AIzaSyBjB8ZQ4-Dds48-gF6GvxPYYmoo0hyJF5U")
     }
 
     buildTypes {
