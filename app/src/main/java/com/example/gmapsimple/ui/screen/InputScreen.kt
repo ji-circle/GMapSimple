@@ -31,7 +31,7 @@ fun InputScreen(
         TextField(
             value = origin,
             onValueChange = onOriginChange,
-            label = { Text("Enter Origin") },
+            label = { Text("출발지") },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -40,7 +40,7 @@ fun InputScreen(
         TextField(
             value = destination,
             onValueChange = onDestinationChange,
-            label = { Text("Enter Destination") },
+            label = { Text("목적지") },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -50,7 +50,7 @@ fun InputScreen(
             onClick = onSearchClicked,
             modifier = Modifier.fillMaxWidth()
         ) {
-            Text("Search Route")
+            Text("검색하기")
         }
     }
 }

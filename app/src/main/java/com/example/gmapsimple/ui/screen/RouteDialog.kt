@@ -32,7 +32,7 @@ fun RouteDialog(
 
     AlertDialog(
         onDismissRequest = onDismiss,
-        title = { Text("Select a Route") },
+        title = { Text("경로 선택하기") },
         text = {
             Column {
                 routes.forEachIndexed { index, route ->
@@ -68,12 +68,12 @@ fun RouteDialog(
                     onDismiss()
                 }
             ) {
-                Text("Confirm")
+                Text("선택완료")
             }
         },
         dismissButton = {
             Button(onClick = onDismiss) {
-                Text("Cancel")
+                Text("취소")
 //                viewmodel.setSelectedRouteIndex(0)
             }
         }

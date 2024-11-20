@@ -33,18 +33,18 @@ fun RouteScreen(
             value = origin,
             onValueChange = { origin = it },
             modifier = Modifier.fillMaxWidth(),
-            decorationBox = { Text("Enter Origin") }
+            decorationBox = { Text("출발지 입력") }
         )
         Spacer(modifier = Modifier.height(8.dp))
         BasicTextField(
             value = destination,
             onValueChange = { destination = it },
             modifier = Modifier.fillMaxWidth(),
-            decorationBox = { Text("Enter Destination") }
+            decorationBox = { Text("목적지 입력") }
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(onClick = { onSearch(origin, destination) }) {
-            Text("Search Route")
+            Text("경로 검색")
         }
     }
 }
