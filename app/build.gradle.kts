@@ -1,11 +1,19 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
 }
+val properties = Properties()
+properties.load(project.rootProject.file("local.properties").inputStream())
 
 android {
     namespace = "com.example.gmapsimple"
     compileSdk = 35
+
+//    val properties = Properties()
+//    properties.load(FileInputStream(rootProject.file("local.properties")))
 
     defaultConfig {
         applicationId = "com.example.gmapsimple"
@@ -18,16 +26,24 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
-        resValue("string","google_maps_key","AIzaSyBjB8ZQ4-Dds48-gF6GvxPYYmoo0hyJF5U")
+        buildConfigField("String", "google_maps_key", properties.getProperty("api_key_debug"))
+////        resValue("string","google_maps_key","AIzaSyBjB8ZQ4-Dds48-gF6GvxPYYmoo0hyJF5U")
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+            buildConfigField("String", "API_KEY", properties.getProperty("api_key_debug"))
+            resValue("string", "API_KEY", properties.getProperty("api_key_debug"))
+        }
         release {
+            buildConfigField("String", "API_KEY", properties.getProperty("api_key_release"))
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
     compileOptions {

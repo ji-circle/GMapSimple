@@ -39,7 +39,7 @@ class DirectionsViewModel(
 //    private val _directionsResult = MutableLiveData<DirectionsEntity?>()
 //    val directionsResult: LiveData<DirectionsEntity?> get() = _directionsResult
 
-    private val _selectedRouteIndex = MutableStateFlow<Int?>(null)
+    private val _selectedRouteIndex = MutableStateFlow<Int?>(0)
     val selectedRouteIndex: StateFlow<Int?> = _selectedRouteIndex
 
 

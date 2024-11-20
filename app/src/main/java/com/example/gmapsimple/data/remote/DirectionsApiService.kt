@@ -1,6 +1,7 @@
 package com.example.gmapsimple.data.remote
 
 import com.example.gmapsimple.data.model.DirectionsResponse
+import com.google.maps.android.BuildConfig
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -13,7 +14,8 @@ interface DirectionsApiService {
         @Query("mode") mode: String,
         @Query("alternatives") alternatives: Boolean = true,
         @Query("language") language: String = "ko",
-        @Query("key") apiKey: String = "AIzaSyBjB8ZQ4-Dds48-gF6GvxPYYmoo0hyJF5U"
+//        @Query("key") apiKey: String = "AIzaSyBjB8ZQ4-Dds48-gF6GvxPYYmoo0hyJF5U"
+        @Query("key") apiKey: String = com.google.maps.android.ktx.utils.BuildConfig.
     ): DirectionsResponse
 
 
