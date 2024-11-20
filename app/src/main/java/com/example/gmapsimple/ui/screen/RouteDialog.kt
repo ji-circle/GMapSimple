@@ -1,5 +1,6 @@
 package com.example.gmapsimple.ui.screen
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -10,10 +11,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.gmapsimple.ui.DirectionsViewModel
 
 @Composable
 fun RouteDialog(
-    routeCount: Int,
+    viewmodel: DirectionsViewModel,
+    routes: List<String>,
     onRouteSelected: (Int) -> Unit,
     onDismiss: () -> Unit
 ) {
@@ -22,15 +26,17 @@ fun RouteDialog(
         title = { Text("Select a Route") },
         text = {
             Column {
-                (1..routeCount).forEach { index ->
-                    Button(
-                        onClick = { onRouteSelected(index - 1) },
+                routes.forEachIndexed { index, route ->
+                    Text(
+                        text = route,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(vertical = 4.dp)
-                    ) {
-                        Text("Route $index")
-                    }
+                            .clickable {
+                                onRouteSelected(index)
+                                viewmodel.setSelectedRouteIndex(index)
+                            }
+                            .padding(8.dp)
+                    )
                 }
             }
         },

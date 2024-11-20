@@ -113,6 +113,10 @@ class DirectionsViewModel(
     val country: LiveData<String> = _country
 
 
+    fun setSelectedRouteIndex(indexNum: Int) {
+        _selectedRouteIndex.value = indexNum ?: 0
+        Log.d("123123", "${indexNum}")
+    }
     fun fetchDirections(origin: String, destination: String, mode: String) {
         viewModelScope.launch {
             try {
@@ -124,6 +128,7 @@ class DirectionsViewModel(
 //                val result = directionsRepository.getDirections(origin, destination, apiKey)
                 _directionsResult.value = result
                 setRouteSelectionText()
+                Log.d("확인 routeSelectionText", routeSelectionText.value.toString())
             } catch (e: Exception) {
                 _error.postValue(e.message)
             }

@@ -1,6 +1,7 @@
 package com.example.gmapsimple
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -64,9 +65,11 @@ class MainActivity : ComponentActivity() {
             }
 
             if (showDialog) {
-                val routeCount = viewModel.directionsResult.value?.routes?.size ?: 0
+                val routes = viewModel.routeSelectionText.value?: emptyList()
+                Log.d("확인 routes", routes.toString())
                 RouteDialog(
-                    routeCount = routeCount,
+                    viewModel,
+                    routes = routes,
                     onRouteSelected = {
                         viewModel.selectRoute(it)
                         showMap = true
@@ -74,6 +77,7 @@ class MainActivity : ComponentActivity() {
                     },
                     onDismiss = { showDialog = false }
                 )
+                showMap = true
             }
         }
     }
