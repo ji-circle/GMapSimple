@@ -74,8 +74,18 @@ dependencies {
 //    implementation(libs.ui.tooling.preview)
 //    implementation(libs.androidx.lifecycle.runtime.compose)
 
+//
+////    implementation("com.google.android.gms:play-services-maps:18.1.0")
+////    implementation("com.google.android.gms:play-services-location:21.3.0")
+////    implementation("com.google.maps.android:maps-compose:2.9.0")
+//
+//    implementation(libs.play.services.maps.v1810)
+//    implementation(libs.play.services.location)
+//    implementation(libs.maps.compose)
+
     // ViewModel
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+//    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
     // Retrofit
     implementation(libs.retrofit)
@@ -107,4 +117,15 @@ dependencies {
 //
 //    // Coroutines
 //    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
+
+//    implementation("com.google.maps.android:android-maps-utils:3.8.0")
+    implementation(libs.android.maps.utils)
+//    implementation("com.google.maps.android:maps-utils-ktx:5.1.1")
+    implementation(libs.maps.utils.ktx)
+
+//    implementation("com.google.maps.android:maps-compose:2.15.0")
+//    implementation("com.google.android.gms:play-services-maps:19.0.0")
+//
+    implementation(libs.maps.compose.v2150)
+    implementation(libs.play.services.maps)
 }
