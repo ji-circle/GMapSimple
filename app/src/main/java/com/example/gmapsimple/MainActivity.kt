@@ -14,6 +14,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
@@ -45,6 +46,10 @@ class MainActivity : ComponentActivity() {
             var origin by remember { mutableStateOf("") }
             var destination by remember { mutableStateOf("") }
 
+//            var RouteDialogState by rememberSaveable {
+//                mutableStateOf(false)
+//            }
+
             if (!showMap) {
                 InputScreen (
                     origin = origin,
@@ -65,12 +70,16 @@ class MainActivity : ComponentActivity() {
             }
 
             if (showDialog) {
-                val routes = viewModel.routeSelectionText.value?: emptyList()
+//                val routes = viewModel.routeSelectionText.value?.toList()
+                val routes = viewModel.getRouteSelectionList()
                 Log.d("확인 routes", routes.toString())
                 RouteDialog(
                     viewModel,
                     routes = routes,
-                    onRouteSelected = {
+//                    onChangeState = {
+//                      RouteDialogState = false
+//                    },
+                    onIndexSelected = {
                         viewModel.selectRoute(it)
                         showMap = true
                         showDialog = false

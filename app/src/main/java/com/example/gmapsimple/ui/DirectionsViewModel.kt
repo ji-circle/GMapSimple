@@ -134,6 +134,15 @@ class DirectionsViewModel(
         }
     }
 
+    fun getRouteSelectionList(): List<String>{
+        val selectionList = mutableListOf<String>()
+
+        routeSelectionText.value?.forEach { it->
+            selectionList.add(it.toString())
+            Log.d("확인 routes viewmodel", it.toString())
+        }
+        return selectionList
+    }
     fun afterSelecting() {
         viewModelScope.launch {
             updatePolyLineWithColors()
